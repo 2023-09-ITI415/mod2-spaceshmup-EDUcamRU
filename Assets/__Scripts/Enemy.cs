@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour {
         GameObject otherGO = coll.gameObject;
         switch (otherGO.tag)
         {
-            case "ProjectileHero":
+            case "ProjectileHero": case "Shrapnel":
                 Projectile p = otherGO.GetComponent<Projectile>();
                 // If this Enemy is off screen, don't damage it.
                 if (!bndCheck.isOnScreen)

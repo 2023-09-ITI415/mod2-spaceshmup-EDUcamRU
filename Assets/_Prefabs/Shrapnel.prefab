@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -5459671600079610048}
   m_Layer: 9
   m_Name: Shrapnel
-  m_TagString: Enemy
+  m_TagString: Shrapnel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
