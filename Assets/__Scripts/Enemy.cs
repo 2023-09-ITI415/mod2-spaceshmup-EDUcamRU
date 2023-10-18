@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour {
     public int score = 100; // Points earned for destroying this
     public float showDamageDuration = 0.1f; // # seconds to show damage
     public float powerUpDropChance = 1f; // Chance to drop a power-up
+    public GameObject shrapnelPrefab; //Shrapnel prefab upon death
 
     [Header("Set Dynamically: Enemy")]
     public Color[] originalColors;
@@ -97,6 +98,45 @@ public class Enemy : MonoBehaviour {
                     notifiedOfDestruction = true;
                     // Destroy this enemy
                     Destroy(this.gameObject);
+                    //Instantiate 4 "shrapnel" prefabs that travel along each axis. Transform each shrapnel along its respective positive or negative x or y axis
+                    GameObject shrapnel1 = Instantiate<GameObject>(shrapnelPrefab);
+                    shrapnel1.transform.position = this.transform.position;
+                    GameObject shrapnel2 = Instantiate<GameObject>(shrapnelPrefab);
+                    shrapnel2.transform.position = this.transform.position;
+                    GameObject shrapnel3 = Instantiate<GameObject>(shrapnelPrefab);
+                    shrapnel3.transform.position = this.transform.position;
+                    GameObject shrapnel4 = Instantiate<GameObject>(shrapnelPrefab);
+                    shrapnel4.transform.position = this.transform.position;
+                    //Shrapnel 1
+                    shrapnel1.transform.Translate(Vector3.up * 0.60f);
+                    shrapnel1.transform.Translate(Vector3.right * 0.60f);
+                    //Add movement to the shrapnel
+                    shrapnel1.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                    shrapnel1.GetComponent<Rigidbody>().AddForce(Vector3.up * 1000);
+                    shrapnel1.GetComponent<Rigidbody>().AddForce(Vector3.right * 1000);
+                    //Shrapnel 2
+                    shrapnel2.transform.Translate(Vector3.up * 0.60f);
+                    shrapnel2.transform.Translate(Vector3.left * 0.60f);
+                    //Add movement to the shrapnel
+                    shrapnel2.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                    shrapnel2.GetComponent<Rigidbody>().AddForce(Vector3.up * 1000);
+                    shrapnel2.GetComponent<Rigidbody>().AddForce(Vector3.left * 1000);
+                    //Shrapnel 3
+                    shrapnel3.transform.Translate(Vector3.down * 0.60f);
+                    shrapnel3.transform.Translate(Vector3.right * 0.60f);
+                    //Add movement to shrapnel 3
+                    shrapnel3.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                    shrapnel3.GetComponent<Rigidbody>().AddForce(Vector3.down * 1000);
+                    shrapnel3.GetComponent<Rigidbody>().AddForce(Vector3.right * 1000);
+                    //Shrapnel 4
+                    shrapnel4.transform.Translate(Vector3.down * 0.60f);
+                    shrapnel4.transform.Translate(Vector3.left * 0.60f);
+                    //Add movement to shrapnel 4
+                    shrapnel4.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                    shrapnel4.GetComponent<Rigidbody>().AddForce(Vector3.down * 1000);
+                    shrapnel4.GetComponent<Rigidbody>().AddForce(Vector3.left * 1000);
+                    // Destroy the ProjectileHero
+                    Destroy(otherGO);
                 }
                 Destroy(otherGO);
                 break;
