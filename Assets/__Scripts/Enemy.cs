@@ -75,7 +75,8 @@ public class Enemy : MonoBehaviour {
         GameObject otherGO = coll.gameObject;
         switch (otherGO.tag)
         {
-            case "ProjectileHero": case "Shrapnel":
+            case "ProjectileHero":
+            case "Shrapnel":
                 Projectile p = otherGO.GetComponent<Projectile>();
                 // If this Enemy is off screen, don't damage it.
                 if (!bndCheck.isOnScreen)
@@ -98,7 +99,8 @@ public class Enemy : MonoBehaviour {
                     notifiedOfDestruction = true;
                     // Destroy this enemy
                     Destroy(this.gameObject);
-                    //Instantiate 4 "shrapnel" prefabs that travel along each axis. Transform each shrapnel along its respective positive or negative x or y axis
+                    //Instantiate 4 "shrapnel" prefabs that travel along each axis.
+                    //Transform each shrapnel along its respective positive or negative x or y axis
                     GameObject shrapnel1 = Instantiate<GameObject>(shrapnelPrefab);
                     shrapnel1.transform.position = this.transform.position;
                     GameObject shrapnel2 = Instantiate<GameObject>(shrapnelPrefab);
