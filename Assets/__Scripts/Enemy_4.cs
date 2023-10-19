@@ -138,6 +138,7 @@ public class Enemy_4 : Enemy {
         switch (other.tag)
         {
             case "ProjectileHero":
+            case "Shrapnel":
                 Projectile p = other.GetComponent<Projectile>();
                 // IF this Enemy is off screen, don't damage it.
                 if (!bndCheck.isOnScreen)
