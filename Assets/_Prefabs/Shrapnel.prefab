@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6526302710866580287}
   - component: {fileID: 2224586352972727934}
   - component: {fileID: -5459671600079610048}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: Shrapnel
   m_TagString: Shrapnel
   m_Icon: {fileID: 0}
